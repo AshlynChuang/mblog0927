@@ -4,14 +4,15 @@
 <h3 style='font-family:標楷體;'>文章列表</a>
 {% endblock %}
 {% block content %} 
+<a href='{%url 'post-url' 2015 10 3 02 %}'>show POST</a>
 
 {% for post in posts %}
     <div class='card'>
         <div class='card-header'>
             <p style='font-family:微軟正黑體;font-size:14pt;font-weight:bold;'>
-                <a href='/post/{{post.slug}}'>{{ post.title }}</a>
+                <a href='{% url 'showpost' post.slug %}'>{{ post.title }}</a>
     </p>
-</div>
+    </div>
     
     <div class='card-body' style='background-color:#ffffdd'>
     <p>
