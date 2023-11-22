@@ -24,6 +24,7 @@ urlpatterns = [
     path('post/<slug:slug>/', mv.showpost, name = "showpost"),
     path('about/', mv.about, {'num':1}),
     path('about/<int:num>', mv.about),
-    path('post/<int:yr>/<int:mon>/<int:day>/<int:post_num>',
-         mv.post, name='post-url')
+    path('post/<int:yr>/<int:mon>/<int:day>/<int:post_num>', mv.post, name='post-url'),
+    path('carlist/', views.carlist),
+    path('carlist/<int:maker>/', views.carlist, name='carlist-url')
 ]
