@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from mysite.models import Post
+from mysite.models import Post, Comment
 from django.http import HttpResponse
 from datetime import datetime
 from django.shortcuts import redirect
@@ -11,9 +11,19 @@ def homepage(request):
     print(f'hour={hour}')
     return render(request, 'index.html', locals())
 
+def show_all_posts(request):
+    posts = Post.objects.all
+    return render(request, 'allposts.html', locals())
+
 def showpost(request, slug):
-    post = Post.objects.get(slug=slug)
+    posts = Post.objects.get(slug=slug)
     return render(request, 'post.html', locals())
+    #select = from post where slug=slug
+
+def show_comments(request, post_id):
+    #comments = Comment.objects.filter(post=post_id)
+    comments = Post.objects.get(id=post_id).comment_set.all()
+    return HttpResponse(comments)
 
 
 import random

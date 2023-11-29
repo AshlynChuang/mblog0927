@@ -20,11 +20,11 @@ from mysite import views as mv
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', mv.homepage, name = "homepage"),
-    path('post/<slug:slug>/', mv.showpost, name = "showpost"),
-    path('about/', mv.about, {'num':1}),
-    path('about/<int:num>', mv.about),
-    path('post/<int:yr>/<int:mon>/<int:day>/<int:post_num>', mv.post, name='post-url'),
+    path('', views.homepage, name = "homepage"),
+    path('post/<slug:slug>/', views.showpost, name = "showpost"),
+    path('post', views.show_all_posts, name='show-all-posts'),
+    path('post/<int:post_id>/comments', views.show_comments, name = 'show-comments'),
+    path('about/<int:num>', views.about, name='about'),
     path('carlist/', views.carlist),
     path('carlist/<int:maker>/', views.carlist, name='carlist-url')
 ]

@@ -1,0 +1,29 @@
+{% extends base2.html %}
+{% block title %}WELCOME TO MY BLOG{% endblock title %}
+{% block headmessage %}
+<h3 style='font-family:標楷體;'>本站文章列表 - table版本</a>
+{% endblock headmessage %}
+{% block content %}
+
+
+{% for c in comments %}
+{% if forloop.first %}
+<table>
+    <tr background="#cccccc">
+        <th>Text</th>
+        <th>pub data</th>
+    </tr>
+{% endif %}
+    <tr background='{% cycle #ffccff #ccffcc %}'>
+        <td>{{c.text}}</td>
+        <td>{{c.pub_date}}</td>
+    </tr>
+{% if forloop.last %}
+</table>
+{% endif %}
+{% empty %}
+<h2>沒有任何回覆</h2>
+
+
+{% end for %}
+{% endblock content %}

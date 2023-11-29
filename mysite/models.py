@@ -11,6 +11,13 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+class comment(models.Model):
+    Post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.text
 
 class Product(models.Model):
     SIZES = (
