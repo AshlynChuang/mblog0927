@@ -26,5 +26,6 @@ urlpatterns = [
     path('post/<int:post_id>/comments', views.show_comments, name = 'show-comments'),
     path('about/<int:num>', views.about, name='about'),
     path('carlist/', views.carlist),
-    path('carlist/<int:maker>/', views.carlist, name='carlist-url')
+    path('carlist/<int:maker>/', views.carlist, name='carlist-url'),
+    path('post/new', views.new_post, name='post-new')
 ]
