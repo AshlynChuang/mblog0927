@@ -31,7 +31,8 @@ urlpatterns = [
     path('post/new', mv.new_post, name='post-new'),
     path('test/new', mv2.index, name='test-new'),
     path('test/delpost/<int:pid>', mv2.delpost),
-    path('list/', mv2.listing),
-    path('post/', mv2.posting),
-    path('contact/', mv2.contact)
+    path('test/contact/', mv2.contact),
+    path('post2db/', mv2.post2db),
+    path('register/', mv2.register),
+    path('login/', mv2.Login)
 ]

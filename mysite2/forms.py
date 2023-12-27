@@ -28,3 +28,13 @@ class Postform(forms.ModelForm):
         self.fields['nickname'].label = '你的暱稱'
         self.fields['message'].label = '心情留言'
         self.fields['del_pass'].label = '設定密碼'
+
+class UserRegisterForm(forms.form):
+    user_name = forms.CharField(label='您的姓名', max_length=50, initial='李大仁')
+    user_email = forms.CharField(label='電子郵件')
+    user_password = forms.CharField(label='輸入密碼', widget=forms.PasswordInput)
+    user_password_confirm = forms.CharField(label='輸入確認密碼', widget=forms.PasswordInput)
+    
+class LoginForm(forms.form):
+    user_email = forms.CharField(label='輸入您的Email')
+    user_password = forms.CharField(label='輸入密碼', widget=forms.PasswordInput)
